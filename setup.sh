@@ -24,8 +24,13 @@ git config --global push.default current
 echo "Installing dev tools"
 brew install php@7.2 dnsmasq
 
-
-
+echo "Installing iterm"
+curl -O https://iterm2.com/downloads/stable/iTerm2-3_2_0.zip
+unzip iTerm2-3_2_0.zip
+mv iTerm.app/ /Applications/
+rm -f iTerm2-3_2_0.zip
+# Add's an exception to gatekeeper
+spctl --add /Applications/iTerm.app/
 
 ###########
 # dnsmasq #
@@ -63,9 +68,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # Show all files in finder
 defaults write com.apple.finder AppleShowAllFiles YES
 
+# Show all file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the delay on Key Repeat
 defaults write -g InitialKeyRepeat -int 10
 defaults write NSGlobalDomain KeyRepeat -int 1
+
+# Kill Finder to apply some settings
+killall Finder
