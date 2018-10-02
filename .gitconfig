@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[user]
+	name = James Wallen-Jones
+	email = j.wallen.jones@googlemail.com
+[push]
+	default = current
+[core]
+	excludesfile = /Users/james/.gitignore_global
+[pull]
+	ff = only
+	followTags = true
+	rebase = true
+[branch]
+	autosetupmerge = always
